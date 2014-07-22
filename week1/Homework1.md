@@ -44,10 +44,10 @@ allow 10.202.30.210
 
 Homework 1.4
 ----
-![backflush](/week1/background_flush.png =250x)
-![lock](/week1/lock.png =250x)
-![btree](/week1/btree.png =250x)
-![pagefaults](/week1/page_faults.png =250x)
+![backflush](/week1/background_flush.png)
+![lock](/week1/lock.png)
+![btree](/week1/btree.png)
+![pagefaults](/week1/page_faults.png)
 
 Which of the conditions below are implied by these graphs?
 
