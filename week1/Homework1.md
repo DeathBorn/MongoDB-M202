@@ -57,6 +57,7 @@ Which of the conditions below are implied by these graphs?
 4.  The server activity is constant over the period viewed
 
 Explanations:
+
 1.  A write-heavy database might regularly see >60% lock [source](http://blog.mms.mongodb.com/post/78650784046/learn-about-lock-percentage-concurrency-in-mongodb). Also background flush avg is high
 2.  High page faults would indicate the database or index does not fit in ram. Btree access indicates access to index. Dropping an index under load, or adding an index would spike the btree metric. So btree graph does not have sudden spikes thus third aswer is correct
 3.  It is seen in page faults graph
