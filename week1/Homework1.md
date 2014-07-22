@@ -44,10 +44,10 @@ allow 10.202.30.210
 
 Homework 1.4
 ----
-![backflush](/background_flush.png)
-![lock](/lock.png)
-![btree](/btree.png)
-![pagefaults](/page_faults.png)
+![backflush](/week1/background_flush.png)
+![lock](/week1/lock.png)
+![btree](/week1/btree.png)
+![pagefaults](/week1/page_faults.png)
 Which of the conditions below are implied by these graphs?
 
 1.  **The server is under heavy write load**
