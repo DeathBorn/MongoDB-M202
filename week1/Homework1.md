@@ -45,9 +45,12 @@ allow 10.202.30.210
 Homework 1.4
 ----
 ![backflush](/week1/background_flush.png)
+(generali 20s. but on 12:20 spikes goes one, ios stress)
 ![lock](/week1/lock.png)
 ![btree](/week1/btree.png)
+(pretty high, lots of writes, spiky, time to shard maybe)
 ![pagefaults](/week1/page_faults.png)
+(shows that mongo had to go to disk, this is abnormal event and is seen through all above images)
 
 Which of the conditions below are implied by these graphs?
 

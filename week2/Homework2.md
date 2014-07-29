@@ -5,6 +5,8 @@ Homework 2.2
 
 You are operating a geographically dispersed replica set as outlined below:
 
+![backflush](/week2/replica_set_chaining.png)
+
 Your network operations team has asked if you can limit the amount of outbound traffic from Site A because of some capacity issues with the traffic in and out of that site. For example, consider that this is where the majority of your users stream/download. However, due to how the application is deployed, you wish to keep your write traffic in Site A for performance, and so you have chosen not to change which server is primary.
 
 Using replica set chaining, which of the following scenarios will minimize traffic due to MongoDB replication in and out of Site A?
@@ -21,6 +23,29 @@ Note: It will probably help you to draw each of the choices below for yourself a
 
 Homework 2.3
 ----
+
+You are performing an aggregation query with $sort, and are hitting the maximum size limit for in-memory sort. Which of the following might resolve this problem?
+
+
+1.  **If running MongoDB 2.4, move your system to another machine with more memory**
+2.  Switch out your HDD for an SSD so that data can be accessed more quickly
+3.  Move your system to another machine with a faster CPU
+4.  **Add an index for the variable(s) you are using to sort the documents**
+5.  **If you are not already doing so, include a $match earlier in the pipeline that will reduce the number of documents you are sorting**
+
+Explanations:
+
+The $sort stage has a limit of 100 megabytes of RAM. By default, if the stage exceeds this limit, $sort will produce an error. [source](http://docs.mongodb.org/manual/reference/operator/aggregation/sort/#sort-and-memory-restrictions)
+
+1.  Changed in version 2.6: The memory limit for $sort changed from 10 percent of RAM to 100 megabytes of RAM. [source](http://docs.mongodb.org/manual/reference/operator/aggregation/sort/#sort-and-memory-restrictions)
+2.  HDD and SSD does not increase the memory limit
+3.  faster CPU does not increase the memory limit
+4.  "$sort operator can take advantage of an index when placed at the beginning of the pipeline or placed before the following aggregation operators: $project, $unwind, and $group." [source](http://docs.mongodb.org/manual/reference/operator/aggregation/sort/#sort-and-memory-restrictions)
+5.  "Place the $match as early in the aggregation pipeline as possible. Because $match limits the total number of documents in the aggregation pipeline, earlier $match operations minimize the amount of processing down the pipe. If you place a $match at the very beginning of a pipeline, the query can take advantage of indexes like any other db.collection.find() or db.collection.findOne()." [source](http://docs.mongodb.org/manual/reference/operator/aggregation/match/#pipeline-optimization) 
+
+
+
+
 Homework 2.4
 ----
 
