@@ -1,5 +1,30 @@
 Homework 2.1
 ----
+
+Initially, your system has the following properties:
+
+You're working with a system where your indexes and part of your working set fit in memory
+You're not constrained by write locks
+You are using an SSD
+Documents are typically sorted on one of several fields and order does not correspond to natural order, though often adjacent docs will be requested in the same query
+You then change your system in the following ways, one at a time, before returning to your original state.
+
+During which of the following changes should a higher readahead result in a larger performance increase than it would have for the initial system state?
+
+Assume that any property of the system not mentioned in a particular choice is still in the state listed above.
+
+1.  Your working set outgrows the available memory, so you are having to go to storage much more often.
+2.  **You begin frequently accessing your data from capped collections, in the order in which it was written.**
+3.  **You are now using a spinning disk, rather than an SSD.**
+4.  You are now writing frequently, so that write locks become a constraint while reads have to wait.
+
+Explanations:
+
+(note:consider having high readhead and then change these options and you will see different performance)
+  
+If you use HDD then 2 answer gives best performance. 1 is really just inefficient.
+ 
+
 Homework 2.2
 ----
 
@@ -18,7 +43,6 @@ Note: It will probably help you to draw each of the choices below for yourself a
 3.  P to S2; S2 to S1; S2 to S3; S3 to S4
 4.  P to S4; S4 to S1; S4 to S2; S4 to S3
 5.  P to S1; S1 to S2; S2 to S3; S1 to S4
-
 
 
 Homework 2.3
